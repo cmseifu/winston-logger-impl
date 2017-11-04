@@ -43,7 +43,7 @@ function getLogger(options) {
   let transport = null;
   if (options.format && options.format === 'json') {
     transport = new winston.transports.Console({
-      level: 'debug', // LOG LEVEL
+      level: options.level || 'debug', // LOG LEVEL
       padLevels:true,
       timestamp: () => {
         return Date.now();
@@ -63,7 +63,7 @@ function getLogger(options) {
       colorize: true,
       timestamp: true,
       padLevels:true,
-      level: 'debug'
+      level: options.level || 'debug'
     })
   }
 
