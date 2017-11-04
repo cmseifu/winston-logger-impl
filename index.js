@@ -48,13 +48,11 @@ function getLogger(options) {
       timestamp: () => {
         return Date.now();
       },
-      formatter: (options) => {
-        // from the high jack timestamp to carry machineId and displayFilename
-        options.message = options.message ? options.message : ''        
+      formatter: (options) => {      
         return JSON.stringify({
           time: options.timestamp(),
           level: options.level,
-          msg: options.message
+          msg: options.message || ''
         });
       }
     })
