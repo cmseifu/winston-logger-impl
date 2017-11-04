@@ -1,6 +1,6 @@
 {
   "name": "winston-logger-impl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "winston logger wrapper for obtain loggers or global override console.log",
   "main": "index.js",
   "scripts": {
