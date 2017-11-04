@@ -1,4 +1,4 @@
-# Project Title
+# Winston Logger Impl
 
 Simple winston logger implementation to allow override of console.log.  Also provide customization of Machine Id and Source file line number.
 
