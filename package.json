@@ -1,0 +1,30 @@
+{
+  "name": "winston-logger-impl",
+  "version": "1.0.0",
+  "description": "winston logger wrapper for obtain loggers or global override console.log",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmseifu/winston-logger-impl.git"
+  },
+  "keywords": [
+    "winston",
+    "logger",
+    "console"
+  ],
+  "author": "Sheng Huang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cmseifu/winston-logger-impl/issues"
+  },
+  "homepage": "https://github.com/cmseifu/winston-logger-impl#readme",
+  "dependencies": {
+    "callsite": "^1.0.0",
+    "node-machine-id": "^1.1.9",
+    "util": "^0.10.3",
+    "winston": "^2.4.0"
+  }
+}
