@@ -5,6 +5,7 @@ const nodeMachineId = require('node-machine-id');
 const machineId = nodeMachineId.machineIdSync({ original: true });
 const callsite = require('callsite');
 
+/* Format the arguments */
 function getFormattedArgs(args, settings) {
   let formatted = [util.format.apply(util.format, Array.prototype.slice.call(args))];
   var properties = [];
@@ -20,6 +21,7 @@ function getFormattedArgs(args, settings) {
   return formatted;
 }
 
+/* Using callsite to obtain the stack trace */
 function getStack() {
   var stack = callsite()[3];
   return [stack.getFileName(), stack.getLineNumber(), stack.getColumnNumber()].join(':')
@@ -40,11 +42,13 @@ OUT:
 
 function getLogger(options) {
   options = options || {}
+  options.label = options.label || ''
   let transport = null;
   if (options.format && options.format === 'json') {
     transport = new winston.transports.Console({
       level: options.level || 'debug', // LOG LEVEL
       padLevels:true,
+      label:options.label,
       timestamp: () => {
         return Date.now();
       },
@@ -52,7 +56,7 @@ function getLogger(options) {
         return JSON.stringify({
           time: options.timestamp(),
           level: options.level,
-          msg: options.message || ''
+          msg: (options.label ? "[" +options.label + '] ' : '')  + (options.message || '')
         });
       }
     })
@@ -61,6 +65,7 @@ function getLogger(options) {
       colorize: true,
       timestamp: true,
       padLevels:true,
+      label: options.label,
       level: options.level || 'debug'
     })
   }
@@ -83,7 +88,7 @@ function getLogger(options) {
   }
 
   Global to the application which overrides console.log|debug|info|warn|error.
-  If don't want global, use getLogger method instead to obtain a bare winston logger.
+  If don't want global, use getLogger method instead to obtain a winston logger.
 */
 function init(options) {
   // Global logger already registered, do nothing
