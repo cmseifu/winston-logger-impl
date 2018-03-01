@@ -23,7 +23,7 @@
   "homepage": "https://github.com/cmseifu/winston-logger-impl#readme",
   "dependencies": {
     "callsite": "^1.0.0",
-    "node-machine-id": "^1.1.9",
+    "node-machine-id": "^1.1.10",
     "util": "^0.10.3",
     "winston": "^2.4.0"
   }
