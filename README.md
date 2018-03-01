@@ -15,9 +15,8 @@ npm --save winston-logger-impl
 By default the logger will initialize with the following based on process.env, but you can always override it.
 
 ```js
-  var isProduction =
-    process.env.NODE_ENV === 'prod' ||
-    process.env.NODE_ENV === 'Production' ||
+  var isProduction = 
+    (process.env.NODE_ENV && process.env.NODE_ENV.substring(0,4).toLowerCase() === 'prod') ||
     'AWS_EXECUTION_ENV' in process.env;
 
   if (!options.level && isProduction) {
