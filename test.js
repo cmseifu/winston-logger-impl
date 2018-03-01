@@ -1,9 +1,9 @@
 'use strict';
-
+console.log('Environment: ',process.env.NODE_ENV)
 var loggerImpl = require('./index.js');
 // loggerImpl.init();
 // Or with all settings
-loggerImpl.init({displayMachineId: true, displayFilename:true, format:'json'});
+loggerImpl.init();
 
 // simple logger
 var defaultLogger = loggerImpl.getLogger()
@@ -17,8 +17,7 @@ console.info("Info");
 console.warn("Warn");
 console.error(new Error("My bad"));
 console.log("Console.log is console.info");
-console.time("label", "start");
-console.timeEnd("label", "end");
+
 
 defaultLogger.debug("Debug");
 defaultLogger.info("Lines below is DEFAULT")
@@ -28,7 +27,8 @@ defaultLogger.error(new Error("Oh boy"))
 customLogger.debug("Debug");
 customLogger.info("This CUSTOM, you won't see any debug since my level is INFO or above")
 customLogger.warn("Warn")
-defaultLogger.error(new Error("Oops"))
+customLogger.error(new Error("Oops"))
 
+process.exit(0)
 
 
