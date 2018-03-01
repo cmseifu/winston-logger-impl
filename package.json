@@ -4,7 +4,7 @@
   "description": "winston logger wrapper for obtain loggers or global override console.log",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test"
   },
   "repository": {
     "type": "git",
