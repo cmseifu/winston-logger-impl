@@ -7,7 +7,7 @@ Simple winston logger implementation to allow override of console.log.  Also pro
 Simply install through npm for winston-logger-impl
 
 ```
-npm --save winston-logger-impl
+npm --save install winston-logger-impl
 ```
 
 
