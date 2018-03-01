@@ -52,7 +52,7 @@ function getLogger(options) {
       timestamp: () => {
         return Date.now();
       },
-      formatter: (options) => {      
+      formatter: (options) => {     
         return JSON.stringify({
           time: options.timestamp(),
           level: options.level,
