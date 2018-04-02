@@ -59,7 +59,12 @@ console.error(new Error("Error"));
 The getLogger method will return a winston logger with the transport of Console.  Only 'format' and 'level' is supported.
 
 ```js
-const logger = loggerImpl.getLogger();
+const logger = loggerImpl.getLogger({
+    format: 'text' // text (default) | 'json',
+    level: 'debug' // debug (default) | 'info' | 'warn' | 'error',
+    displayMachineId: false // false (default) | true,
+    displayFilename: false // false (default) | true,  Note: level 'warn' or above will always true unless defined
+  });
 logger.log("Info");
 logger.warn("Warn");
 logger.error(new Error("Error"));
